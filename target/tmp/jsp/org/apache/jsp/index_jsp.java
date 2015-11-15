@@ -57,7 +57,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <div class=\"navbuttonhome\"><a href=\"index.jsp\"><img src=\"graphics/home.png\" class=\"navbuttonhome\"></a></div>\n");
       out.write("                <div class=\"navbutton\"><a href=\"unit.jsp\"><img src=\"graphics/unit.png\" class=\"navbutton\"></a></div>\n");
       out.write("                <div class=\"navbutton\"><a href=\"showAllSoldiers.jsp\"><img src=\"graphics/soldier.png\" class=\"navbutton\"></a></div>\n");
-      out.write("                <div class=\"navbutton\"><a href=\"vehicle.jsp\"><img src=\"graphics/vehicle.png\" class=\"navbutton\"></a></div>\n");
+      out.write("                <div class=\"navbutton\"><a href=\"showAllVehicles.jsp\"><img src=\"graphics/vehicle.png\" class=\"navbutton\"></a></div>\n");
       out.write("        </div>\n");
       out.write("\n");
       out.write("        <p class=\"bigheader\">Armia Wściekłych Lisów</p>\n");

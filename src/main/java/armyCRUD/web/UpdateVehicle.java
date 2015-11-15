@@ -1,36 +1,40 @@
 package armyCRUD.web;
 import armyCRUD.service.StorageService;
-import armyCRUD.domain.Soldier;
+import armyCRUD.domain.Vehicle;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-@WebServlet(urlPatterns = "/updateSoldier")
-public class UpdateSoldier extends HttpServlet
+@WebServlet(urlPatterns = "/updateVehicle")
+public class UpdateVehicle extends HttpServlet
 {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         response.setContentType("text/html");
         int Id = Integer.parseInt(request.getParameter("id"));
-        String Rank = request.getParameter("rank");
+
         String Name = request.getParameter("name");
-        int yearOfService = Integer.parseInt(request.getParameter("yearOfService"));
+        String Type = request.getParameter("type");
+        String Status = request.getParameter("status");
+        int Speed = Integer.parseInt(request.getParameter("speed"));
         StorageService a = (StorageService) getServletContext().getAttribute("storage");
-        for (int i=0; i<a.getAllSoldiers().size(); i++)
+        for (int i=0; i<a.getAllVehicles().size(); i++)
         {
-            if (a.getAllSoldiers().get(i).getId() == Id)
+            if (a.getAllVehicles().get(i).getId() == Id)
             {
-                Soldier s = a.getAllSoldiers().get(i);
-                s.setRank(Rank);
+                Vehicle s = a.getAllVehicles().get(i);
+
                 s.setName(Name);
-                s.setyearOfService(yearOfService);
+                s.setType(Type);
+                s.setStatus(Status);
+                s.setSpeed(Speed);
                 break;
             }
         }
 
-        this.getServletContext().getRequestDispatcher("/showAllSoldiers.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/showAllVehicles.jsp").forward(request, response);
     }
 }

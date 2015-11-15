@@ -36,7 +36,7 @@ if (s.getId() == Integer.parseInt(Id))
                 break;
             }
 }
-out.println("<form action='updateSoldier'><input type='hidden' name='id' value='" + Id + "' /><tr class='tableheader'><td colspan='2'>Id Żołnierza=" + Id + "</td></tr><tr><td>Ranga:</td><td><input type='text' name='rank' value='" + Rank + "' /></td></tr><tr><td>Nazwa:</td><td><input type='text' name='name' value='" + Name + "' /></td></tr><tr><td>Lata Służby:</td><td><input type='text' name='yearOfService' value='" + Integer.toString(yearOfService) + "' /></td></tr></form>");
+out.println("<form action='selectSoldier'><input type='hidden' name='id' value='" + Id + "' /><tr class='tableheader'><td colspan='2'>Id Żołnierza=" + Id + "</td></tr><tr><td>Ranga:</td><td><input type='text' name='rank' value='" + Rank + "' /></td></tr><tr><td>Nazwa:</td><td><input type='text' name='name' value='" + Name + "' /></td></tr><tr><td>Lata Służby:</td><td><input type='text' name='yearOfService' value='" + Integer.toString(yearOfService) + "' /></td></tr></form>");
 out.println("<p align='center'><a href='showAllSoldiers.jsp'>Powrót do listy żołnierzy</a></p>");
 %>
 

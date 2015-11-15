@@ -17,28 +17,32 @@
                 <div class="navbutton"><a href="showAllVehicles.jsp"><img src="graphics/vehicle.png" class="navbutton"></a></div>
         </div>
          <jsp:useBean id="storage" class="armyCRUD.service.StorageService" scope="application" />
-        <jsp:useBean id="soldier" class="armyCRUD.domain.Soldier" scope="session" />
+        <jsp:useBean id="vehicle" class="armyCRUD.domain.Vehicle" scope="session" />
 
         <div class="contentbox">
-            <form action="addSoldier.jsp">
+            <form action="addVehicle.jsp">
             <table class="operationtable">
         <tr class='tableheader'>
-            <td colspan='2'>Dodawanie żołnierza</td>
-        </tr>
-        <tr>
-            <td>Ranga:</td>
-            <td><input type="text" name="rank" value="${Soldier.Rank}" /></td>
+            <td colspan='2'>Dodawanie pojazdu</td>
         </tr>
         <tr>
             <td>Nazwa:</td>
-            <td><input type="text" name="name" value="${Soldier.Name}" /></td>
+            <td><input type="text" name="name" value="${Vehicle.Name}" /></td>
         </tr>
         <tr>
-            <td>Lata służby:</td>
-            <td><input type="text" name="yearOfService" value="${Soldier.yearOfService}" /></td>
+            <td>Typ:</td>
+                    <td><input type="text" name="type" value="${Vehicle.Type}" /></td>
         </tr>
         <tr>
-            <td colspan="2"><input type="submit" value=" Dodaj żołnierza " align="right"></td>
+            <td>Stan:</td>
+            <td><input type="text" name="status" value="${Vehicle.Status}" /></td>
+        </tr>
+        <tr>
+            <td>Prędkość:</td>
+            <td><input type="text" name="speed" value="${Vehicle.Speed}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value=" Dodaj pojazd " align="right"></td>
         </tr>
             </table>
             </form>

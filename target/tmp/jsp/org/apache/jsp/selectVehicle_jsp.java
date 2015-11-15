@@ -4,9 +4,9 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import java.io.PrintWriter;
-import armyCRUD.domain.Soldier;
+import armyCRUD.domain.Vehicle;
 
-public final class updateSoldier_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class selectVehicle_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -59,7 +59,7 @@ public final class updateSoldier_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                <div class=\"navbuttonhome\"><a href=\"index.jsp\"><img src=\"graphics/home.png\" class=\"navbuttonhome\"></a></div>\n");
       out.write("                <div class=\"navbutton\"><a href=\"unit.jsp\"><img src=\"graphics/unit.png\" class=\"navbutton\"></a></div>\n");
       out.write("                <div class=\"navbutton\"><a href=\"showAllSoldiers.jsp\"><img src=\"graphics/soldier.png\" class=\"navbutton\"></a></div>\n");
-      out.write("                <div class=\"navbutton\"><a href=\"vehicle.jsp\"><img src=\"graphics/vehicle.png\" class=\"navbutton\"></a></div>\n");
+      out.write("                <div class=\"navbutton\"><a href=\"showAllVehicles.jsp\"><img src=\"graphics/vehicle.png\" class=\"navbutton\"></a></div>\n");
       out.write("        </div>\n");
       out.write("</div>\n");
       armyCRUD.service.StorageService storage = null;
@@ -71,36 +71,38 @@ public final class updateSoldier_jsp extends org.apache.jasper.runtime.HttpJspBa
         }
       }
       out.write('\n');
-      armyCRUD.domain.Soldier soldier = null;
+      armyCRUD.domain.Vehicle vehicle = null;
       synchronized (session) {
-        soldier = (armyCRUD.domain.Soldier) _jspx_page_context.getAttribute("soldier", PageContext.SESSION_SCOPE);
-        if (soldier == null){
-          soldier = new armyCRUD.domain.Soldier();
-          _jspx_page_context.setAttribute("soldier", soldier, PageContext.SESSION_SCOPE);
+        vehicle = (armyCRUD.domain.Vehicle) _jspx_page_context.getAttribute("vehicle", PageContext.SESSION_SCOPE);
+        if (vehicle == null){
+          vehicle = new armyCRUD.domain.Vehicle();
+          _jspx_page_context.setAttribute("vehicle", vehicle, PageContext.SESSION_SCOPE);
         }
       }
       out.write('\n');
-      org.apache.jasper.runtime.JspRuntimeLibrary.introspect(_jspx_page_context.findAttribute("soldier"), request);
+      org.apache.jasper.runtime.JspRuntimeLibrary.introspect(_jspx_page_context.findAttribute("vehicle"), request);
       out.write("\n");
       out.write("<div class=\"contentbox\">\n");
       out.write("<table class=\"operationtable\">\n");
 
-String Id = request.getParameter("idedit");
-String Rank = "", Name = ""; int yearOfService = -1;
-for (Soldier s : storage.getAllSoldiers())
+String Id = request.getParameter("idSelect");
+String Name = "", Type = "", Status = ""; int Speed = -1;
+for (Vehicle v : storage.getAllVehicles())
 {
-if (s.getId() == Integer.parseInt(Id))
+if (v.getId() == Integer.parseInt(Id))
 {
-                Rank = s.getRank();
-                Name = s.getName();
-                yearOfService = s.getyearOfService();
+                Name = v.getName();
+                Name = v.getName();
+                Type = v.getType();
+                Status = v.getStatus();
+                Speed = v.getSpeed();
                 break;
             }
 }
-out.println("<form action='updateSoldier'><input type='hidden' name='id' value='" + Id + "' /><tr class='tableheader'><td colspan='2'>Id Żołnierza=" + Id + "</td></tr><tr><td>Ranga:</td><td><input type='text' name='rank' value='" + Rank + "' /></td></tr><tr><td>Nazwa:</td><td><input type='text' name='name' value='" + Name + "' /></td></tr><tr><td>Lata Służby:</td><td><input type='text' name='yearOfService' value='" + Integer.toString(yearOfService) + "' /></td></tr><tr><td colspan='2'><input type='submit' value='ZAPISZ'></td></tr></form>");
-out.println("<p align='center'><a href='showAllSoldiers.jsp'>Powrót do listy żołnierzy</a></p>");
+out.println("<form action='selectVehicle'><input type='hidden' name='id' value='" + Id + "' /><tr class='tableheader'><td colspan='2'>Id Pojazdu=" + Id + "</td></tr><tr><td>Nazwa:</td><td><input type='text' name='name' value='" + Name + "' /></td></tr><tr><td>Typ:</td><td><input type='text' name='type' value='" + Type + "' /></td></tr><tr><td>Stan:</td><td><input type='text' name='status' value='" + Status + "' /></td></tr><tr><td>Prędkość:</td><td><input type='text' name='speed' value='" + Integer.toString(Speed) + "' /></td></tr></form>");
+out.println("<p align='center'><a href='showAllVehicles.jsp'>Powrót do listy żołnierzy</a></p>");
 
-
+      out.write("\n");
       out.write("\n");
       out.write("</table>\n");
       out.write("</div>\n");

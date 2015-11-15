@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8" import="armyCRUD.domain.Soldier"%>
+pageEncoding="UTF-8" import="armyCRUD.domain.Vehicle"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -20,32 +20,32 @@ pageEncoding="UTF-8" import="armyCRUD.domain.Soldier"%>
 
 
     <div class="contentbox">
-            <!--<a href="getSoldierData.jsp" class="buttonlink"><div class="addbutton">+</div></a>-->
+            <!--<a href="getVehicleData.jsp" class="buttonlink"><div class="addbutton">+</div></a>-->
             <table class="operationtable">
         <tr class="tableheader">
             <td colspan="2">Operacje</td>
         </tr>
         <tr>
-            <td colspan="2"><a href="getSoldierData.jsp"><div class="opbutton"><img src="graphics/plus2.png"></div></a></td>
+            <td colspan="2"><a href="getVehicleData.jsp"><div class="opbutton"><img src="graphics/plus2.png"></div></a></td>
         </tr>
     <tr>
-        <form action="selectSoldier.jsp">
+        <form action="selectVehicle.jsp">
         <td><input type="text" name="idSelect" value="Podaj ID"/></td>
-        <!--<td><a href="selectSoldier.jsp"><div class="opbutton"><img src="graphics/select.png"></div></a></td>-->
-        <td><input type="image" src="graphics/select.png" border="0" alt="Submit" onclick="window.location.href='selectSoldier.jsp'" /></td>
+        <!--<td><a href="selectVehicle.jsp"><div class="opbutton"><img src="graphics/select.png"></div></a></td>-->
+        <td><input type="image" src="graphics/select.png" border="0" alt="Submit" onclick="window.location.href='selectVehicle.jsp'" /></td>
         </form>
     </tr>
     <tr>
-        <form action="updateSoldier.jsp">
+        <form action="updateVehicle.jsp">
         <td><input type='text' name='idedit' value="Podaj ID"/></td>
-        <!--<td><a href="getSoldierData.jsp"><div class="opbutton"><img src="graphics/update.png"></div></a></td>-->
+        <!--<td><a href="getVehicleData.jsp"><div class="opbutton"><img src="graphics/update.png"></div></a></td>-->
         <td><input type="image" src="graphics/update.png" border="0" alt="Submit" /></td>
         </form>
     </tr>
     <tr>
-        <form action="deleteSoldier">
+        <form action="deleteVehicle">
         <td><input type='text' name='iddelete' value="Podaj ID"/></td>
-        <!--<td><a href="getSoldierData.jsp"><div class="opbutton"><img src="graphics/delete2.png"></div></a></td>-->
+        <!--<td><a href="getVehicleData.jsp"><div class="opbutton"><img src="graphics/delete2.png"></div></a></td>-->
         <td><input type='image' src="graphics/delete2.png" border="0" alt="Submit"/></td>
         </form>
     </tr>
@@ -54,20 +54,22 @@ pageEncoding="UTF-8" import="armyCRUD.domain.Soldier"%>
         <table class="presentationtable" align="center">
     <tr>
         <td>ID</td>
-        <td>Ranga</td>
         <td>Nazwa</td>
-        <td>Lata służby</td>
+        <td>Typ</td>
+        <td>Stan</td>
+        <td>Prędkość</td>
         <!--<td colspan="3">Operacje</td>-->
     </tr>
     <%
-    for (Soldier soldier : storage.getAllSoldiers())
+    for (Vehicle vehicle : storage.getAllVehicles())
     {
     out.println(
-    "<tr><td>" + soldier.getId() + "</td>" +
-    "<td>" + soldier.getRank() + "</td>" +
-    "<td>" + soldier.getName() + "</td>" +
-    "<td>" + soldier.getyearOfService() + "</td>" +
-    /*"<td><img src=" + "graphics/preview.png" + " class=\"actionbutton\"></td>" +
+    "<tr><td>" + vehicle.getId() + "</td>" +
+    "<td>" + vehicle.getName() + "</td>" +
+    "<td>" + vehicle.getType() + "</td>" +
+    "<td>" + vehicle.getStatus() + "</td>" +
+    "<td>" + vehicle.getSpeed() + "</td>" +
+    /*"<td><img src=" + "graphics/select.png" + " class=\"actionbutton\"></td>" +
     "<td><img src=" + "graphics/edit.png" + " class=\"actionbutton\"></td>" +
     "<td><img src=" + "graphics/delete2.png" + " class=\"actionbutton\"></td>" +*/
     "</tr>");

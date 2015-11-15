@@ -3,9 +3,9 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import armyCRUD.domain.Soldier;
+import armyCRUD.domain.Vehicle;
 
-public final class showAllSoldiers_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class showAllVehicles_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -63,32 +63,32 @@ public final class showAllSoldiers_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("\n");
       out.write("\n");
       out.write("    <div class=\"contentbox\">\n");
-      out.write("            <!--<a href=\"getSoldierData.jsp\" class=\"buttonlink\"><div class=\"addbutton\">+</div></a>-->\n");
+      out.write("            <!--<a href=\"getVehicleData.jsp\" class=\"buttonlink\"><div class=\"addbutton\">+</div></a>-->\n");
       out.write("            <table class=\"operationtable\">\n");
       out.write("        <tr class=\"tableheader\">\n");
       out.write("            <td colspan=\"2\">Operacje</td>\n");
       out.write("        </tr>\n");
       out.write("        <tr>\n");
-      out.write("            <td colspan=\"2\"><a href=\"getSoldierData.jsp\"><div class=\"opbutton\"><img src=\"graphics/plus2.png\"></div></a></td>\n");
+      out.write("            <td colspan=\"2\"><a href=\"getVehicleData.jsp\"><div class=\"opbutton\"><img src=\"graphics/plus2.png\"></div></a></td>\n");
       out.write("        </tr>\n");
       out.write("    <tr>\n");
-      out.write("        <form action=\"selectSoldier.jsp\">\n");
+      out.write("        <form action=\"selectVehicle.jsp\">\n");
       out.write("        <td><input type=\"text\" name=\"idSelect\" value=\"Podaj ID\"/></td>\n");
-      out.write("        <!--<td><a href=\"selectwSoldier.jsp\"><div class=\"opbutton\"><img src=\"graphics/select.png\"></div></a></td>-->\n");
-      out.write("        <td><input type=\"image\" src=\"graphics/select.png\" border=\"0\" alt=\"Submit\" onclick=\"window.location.href='selectSoldier.jsp'\" /></td>\n");
+      out.write("        <!--<td><a href=\"selectVehicle.jsp\"><div class=\"opbutton\"><img src=\"graphics/select.png\"></div></a></td>-->\n");
+      out.write("        <td><input type=\"image\" src=\"graphics/select.png\" border=\"0\" alt=\"Submit\" onclick=\"window.location.href='selectVehicle.jsp'\" /></td>\n");
       out.write("        </form>\n");
       out.write("    </tr>\n");
       out.write("    <tr>\n");
-      out.write("        <form action=\"updateSoldier.jsp\">\n");
+      out.write("        <form action=\"updateVehicle.jsp\">\n");
       out.write("        <td><input type='text' name='idedit' value=\"Podaj ID\"/></td>\n");
-      out.write("        <!--<td><a href=\"getSoldierData.jsp\"><div class=\"opbutton\"><img src=\"graphics/update.png\"></div></a></td>-->\n");
+      out.write("        <!--<td><a href=\"getVehicleData.jsp\"><div class=\"opbutton\"><img src=\"graphics/update.png\"></div></a></td>-->\n");
       out.write("        <td><input type=\"image\" src=\"graphics/update.png\" border=\"0\" alt=\"Submit\" /></td>\n");
       out.write("        </form>\n");
       out.write("    </tr>\n");
       out.write("    <tr>\n");
-      out.write("        <form action=\"deleteSoldier\">\n");
+      out.write("        <form action=\"deleteVehicle\">\n");
       out.write("        <td><input type='text' name='iddelete' value=\"Podaj ID\"/></td>\n");
-      out.write("        <!--<td><a href=\"getSoldierData.jsp\"><div class=\"opbutton\"><img src=\"graphics/delete2.png\"></div></a></td>-->\n");
+      out.write("        <!--<td><a href=\"getVehicleData.jsp\"><div class=\"opbutton\"><img src=\"graphics/delete2.png\"></div></a></td>-->\n");
       out.write("        <td><input type='image' src=\"graphics/delete2.png\" border=\"0\" alt=\"Submit\"/></td>\n");
       out.write("        </form>\n");
       out.write("    </tr>\n");
@@ -106,21 +106,23 @@ public final class showAllSoldiers_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("        <table class=\"presentationtable\" align=\"center\">\n");
       out.write("    <tr>\n");
       out.write("        <td>ID</td>\n");
-      out.write("        <td>Ranga</td>\n");
       out.write("        <td>Nazwa</td>\n");
-      out.write("        <td>Lata służby</td>\n");
+      out.write("        <td>Typ</td>\n");
+      out.write("        <td>Stan</td>\n");
+      out.write("        <td>Prędkość</td>\n");
       out.write("        <!--<td colspan=\"3\">Operacje</td>-->\n");
       out.write("    </tr>\n");
       out.write("    ");
 
-    for (Soldier soldier : storage.getAllSoldiers())
+    for (Vehicle vehicle : storage.getAllVehicles())
     {
     out.println(
-    "<tr><td>" + soldier.getId() + "</td>" +
-    "<td>" + soldier.getRank() + "</td>" +
-    "<td>" + soldier.getName() + "</td>" +
-    "<td>" + soldier.getyearOfService() + "</td>" +
-    /*"<td><img src=" + "graphics/preview.png" + " class=\"actionbutton\"></td>" +
+    "<tr><td>" + vehicle.getId() + "</td>" +
+    "<td>" + vehicle.getName() + "</td>" +
+    "<td>" + vehicle.getType() + "</td>" +
+    "<td>" + vehicle.getStatus() + "</td>" +
+    "<td>" + vehicle.getSpeed() + "</td>" +
+    /*"<td><img src=" + "graphics/select.png" + " class=\"actionbutton\"></td>" +
     "<td><img src=" + "graphics/edit.png" + " class=\"actionbutton\"></td>" +
     "<td><img src=" + "graphics/delete2.png" + " class=\"actionbutton\"></td>" +*/
     "</tr>");

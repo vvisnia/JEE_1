@@ -57,7 +57,7 @@ public final class getSoldierData_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("                <div class=\"navbuttonhome\"><a href=\"index.jsp\"><img src=\"graphics/home.png\" class=\"navbuttonhome\"></a></div>\n");
       out.write("                <div class=\"navbutton\"><a href=\"unit.jsp\"><img src=\"graphics/unit.png\" class=\"navbutton\"></a></div>\n");
       out.write("                <div class=\"navbutton\"><a href=\"showAllSoldiers.jsp\"><img src=\"graphics/soldier.png\" class=\"navbutton\"></a></div>\n");
-      out.write("                <div class=\"navbutton\"><a href=\"vehicle.jsp\"><img src=\"graphics/vehicle.png\" class=\"navbutton\"></a></div>\n");
+      out.write("                <div class=\"navbutton\"><a href=\"showAllVehicles.jsp\"><img src=\"graphics/vehicle.png\" class=\"navbutton\"></a></div>\n");
       out.write("        </div>\n");
       out.write("         ");
       armyCRUD.service.StorageService storage = null;
@@ -84,7 +84,7 @@ public final class getSoldierData_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("            <form action=\"addSoldier.jsp\">\n");
       out.write("            <table class=\"operationtable\">\n");
       out.write("        <tr class='tableheader'>\n");
-      out.write("            <td colspan='2'>Dodawanie klienta</td>\n");
+      out.write("            <td colspan='2'>Dodawanie żołnierza</td>\n");
       out.write("        </tr>\n");
       out.write("        <tr>\n");
       out.write("            <td>Ranga:</td>\n");

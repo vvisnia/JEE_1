@@ -18,15 +18,15 @@
 </div>
     <div class="contentbox">
         <jsp:useBean id="storage" class="armyCRUD.service.StorageService" scope="application" />
-        <jsp:useBean id="soldier" class="armyCRUD.domain.Soldier" scope="session" />
-        <jsp:setProperty name="soldier" property="*" />
+        <jsp:useBean id="vehicle" class="armyCRUD.domain.Vehicle" scope="session" />
+        <jsp:setProperty name="vehicle" property="*" />
 
         <%
-        storage.add(soldier);
+        storage.add(vehicle);
         %>
-    <div class="successbox">Pomyślnie dodano żołnierza do bazy.</div>
+    <div class="successbox">Pomyślnie dodano pojazd do bazy.</div>
         <p align="center">
-        <a href="showAllSoldiers.jsp">Powrót do listy żołnierzy</a>
+        <a href="showAllVehicles.jsp">Powrót do listy pojazdów</a>
         </p>
     </div>
 </body>

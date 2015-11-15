@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class addSoldier_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class addVehicle_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -71,27 +71,27 @@ public final class addSoldier_jsp extends org.apache.jasper.runtime.HttpJspBase
       }
       out.write("\n");
       out.write("        ");
-      armyCRUD.domain.Soldier soldier = null;
+      armyCRUD.domain.Vehicle vehicle = null;
       synchronized (session) {
-        soldier = (armyCRUD.domain.Soldier) _jspx_page_context.getAttribute("soldier", PageContext.SESSION_SCOPE);
-        if (soldier == null){
-          soldier = new armyCRUD.domain.Soldier();
-          _jspx_page_context.setAttribute("soldier", soldier, PageContext.SESSION_SCOPE);
+        vehicle = (armyCRUD.domain.Vehicle) _jspx_page_context.getAttribute("vehicle", PageContext.SESSION_SCOPE);
+        if (vehicle == null){
+          vehicle = new armyCRUD.domain.Vehicle();
+          _jspx_page_context.setAttribute("vehicle", vehicle, PageContext.SESSION_SCOPE);
         }
       }
       out.write("\n");
       out.write("        ");
-      org.apache.jasper.runtime.JspRuntimeLibrary.introspect(_jspx_page_context.findAttribute("soldier"), request);
+      org.apache.jasper.runtime.JspRuntimeLibrary.introspect(_jspx_page_context.findAttribute("vehicle"), request);
       out.write("\n");
       out.write("\n");
       out.write("        ");
 
-        storage.add(soldier);
+        storage.add(vehicle);
         
       out.write("\n");
-      out.write("    <div class=\"successbox\">Pomyślnie dodano żołnierza do bazy.</div>\n");
+      out.write("    <div class=\"successbox\">Pomyślnie dodano pojazd do bazy.</div>\n");
       out.write("        <p align=\"center\">\n");
-      out.write("        <a href=\"showAllSoldiers.jsp\">Powrót do listy żołnierzy</a>\n");
+      out.write("        <a href=\"showAllVehicles.jsp\">Powrót do listy pojazdów</a>\n");
       out.write("        </p>\n");
       out.write("    </div>\n");
       out.write("</body>\n");
