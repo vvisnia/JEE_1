@@ -13,11 +13,9 @@
             <div class="navbuttons">
                 <div class="navbuttonhome"><a href="index.jsp"><img src="graphics/home.png" class="navbuttonhome"></a></div>
                 <div class="navbutton"><a href="unit.jsp"><img src="graphics/unit.png" class="navbutton"></a></div>
-                <div class="navbutton"><a href="showAllSoldiers.jsp"><img src="graphics/soldier.png" class="navbutton"></a></div>
+                <div class="navbutton"><a href="soldier.jsp"><img src="graphics/soldier.png" class="navbutton"></a></div>
                 <div class="navbutton"><a href="vehicle.jsp"><img src="graphics/vehicle.png" class="navbutton"></a></div>
         </div>
 
-        <p class="bigheader">Armia Wściekłych Lisów</p>
-        <p class="smallheader">Użyj menu, by poruszać się po stronie.</p>
     </body>
 </html>

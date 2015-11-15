@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class getSoldierData_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -59,9 +59,57 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <div class=\"navbutton\"><a href=\"showAllSoldiers.jsp\"><img src=\"graphics/soldier.png\" class=\"navbutton\"></a></div>\n");
       out.write("                <div class=\"navbutton\"><a href=\"vehicle.jsp\"><img src=\"graphics/vehicle.png\" class=\"navbutton\"></a></div>\n");
       out.write("        </div>\n");
+      out.write("         ");
+      armyCRUD.service.StorageService storage = null;
+      synchronized (application) {
+        storage = (armyCRUD.service.StorageService) _jspx_page_context.getAttribute("storage", PageContext.APPLICATION_SCOPE);
+        if (storage == null){
+          storage = new armyCRUD.service.StorageService();
+          _jspx_page_context.setAttribute("storage", storage, PageContext.APPLICATION_SCOPE);
+        }
+      }
       out.write("\n");
-      out.write("        <p class=\"bigheader\">Armia Wściekłych Lisów</p>\n");
-      out.write("        <p class=\"smallheader\">Użyj menu, by poruszać się po stronie.</p>\n");
+      out.write("        ");
+      armyCRUD.domain.Soldier soldier = null;
+      synchronized (session) {
+        soldier = (armyCRUD.domain.Soldier) _jspx_page_context.getAttribute("soldier", PageContext.SESSION_SCOPE);
+        if (soldier == null){
+          soldier = new armyCRUD.domain.Soldier();
+          _jspx_page_context.setAttribute("soldier", soldier, PageContext.SESSION_SCOPE);
+        }
+      }
+      out.write("\n");
+      out.write("\n");
+      out.write("        <div class=\"contentbox\">\n");
+      out.write("            <form action=\"addSoldier.jsp\">\n");
+      out.write("            <table class=\"operationtable\">\n");
+      out.write("        <tr class='tableheader'>\n");
+      out.write("            <td colspan='2'>Dodawanie klienta</td>\n");
+      out.write("        </tr>\n");
+      out.write("        <tr>\n");
+      out.write("            <td>Ranga:</td>\n");
+      out.write("            <td><input type=\"text\" name=\"rank\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${Soldier.Rank}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" /></td>\n");
+      out.write("        </tr>\n");
+      out.write("        <tr>\n");
+      out.write("            <td>Nazwa:</td>\n");
+      out.write("            <td><input type=\"text\" name=\"name\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${Soldier.Name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" /></td>\n");
+      out.write("        </tr>\n");
+      out.write("        <tr>\n");
+      out.write("            <td>Lata służby:</td>\n");
+      out.write("            <td><input type=\"text\" name=\"yearOfService\" value=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${Soldier.yearOfService}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\" /></td>\n");
+      out.write("        </tr>\n");
+      out.write("        <tr>\n");
+      out.write("            <td colspan=\"2\"><input type=\"submit\" value=\" Dodaj żołnierza \" align=\"right\"></td>\n");
+      out.write("        </tr>\n");
+      out.write("            </table>\n");
+      out.write("            </form>\n");
+      out.write("        </div>\n");
       out.write("    </body>\n");
       out.write("</html>");
     } catch (Throwable t) {
