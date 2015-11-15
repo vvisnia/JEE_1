@@ -3,9 +3,9 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import armyCRUD.domain.Soldier;
+import armyCRUD.domain.Unit;
 
-public final class showAllSoldiers_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class showAllUnits_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -56,39 +56,39 @@ public final class showAllSoldiers_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("        <div class=\"navbar\">\n");
       out.write("            <div class=\"navbuttons\">\n");
       out.write("                <div class=\"navbuttonhome\"><a href=\"index.jsp\"><img src=\"graphics/home.png\" class=\"navbuttonhome\"></a></div>\n");
-      out.write("                <div class=\"navbutton\"><a href=\"unit.jsp\"><img src=\"graphics/unit.png\" class=\"navbutton\"></a></div>\n");
+      out.write("                <div class=\"navbutton\"><a href=\"showAllUnits.jsp\"><img src=\"graphics/unit.png\" class=\"navbutton\"></a></div>\n");
       out.write("                <div class=\"navbutton\"><a href=\"showAllSoldiers.jsp\"><img src=\"graphics/soldier.png\" class=\"navbutton\"></a></div>\n");
       out.write("                <div class=\"navbutton\"><a href=\"showAllVehicles.jsp\"><img src=\"graphics/vehicle.png\" class=\"navbutton\"></a></div>\n");
       out.write("        </div>\n");
       out.write("\n");
       out.write("\n");
       out.write("    <div class=\"contentbox\">\n");
-      out.write("            <!--<a href=\"getSoldierData.jsp\" class=\"buttonlink\"><div class=\"addbutton\">+</div></a>-->\n");
+      out.write("            <!--<a href=\"getUnitData.jsp\" class=\"buttonlink\"><div class=\"addbutton\">+</div></a>-->\n");
       out.write("            <table class=\"operationtable\">\n");
       out.write("        <tr class=\"tableheader\">\n");
       out.write("            <td colspan=\"2\">Operacje</td>\n");
       out.write("        </tr>\n");
       out.write("        <tr>\n");
-      out.write("            <td colspan=\"2\"><a href=\"getSoldierData.jsp\"><div class=\"opbutton\"><img src=\"graphics/plus2.png\"></div></a></td>\n");
+      out.write("            <td colspan=\"2\"><a href=\"getUnitData.jsp\"><div class=\"opbutton\"><img src=\"graphics/plus2.png\"></div></a></td>\n");
       out.write("        </tr>\n");
       out.write("    <tr>\n");
-      out.write("        <form action=\"selectSoldier.jsp\">\n");
+      out.write("        <form action=\"selectUnit.jsp\">\n");
       out.write("        <td><input type=\"text\" name=\"idSelect\" value=\"Podaj ID\"/></td>\n");
-      out.write("        <!--<td><a href=\"selectSoldier.jsp\"><div class=\"opbutton\"><img src=\"graphics/select.png\"></div></a></td>-->\n");
-      out.write("        <td><input type=\"image\" src=\"graphics/select.png\" border=\"0\" alt=\"Submit\" onclick=\"window.location.href='selectSoldier.jsp'\" /></td>\n");
+      out.write("        <!--<td><a href=\"selectUnit.jsp\"><div class=\"opbutton\"><img src=\"graphics/select.png\"></div></a></td>-->\n");
+      out.write("        <td><input type=\"image\" src=\"graphics/select.png\" border=\"0\" alt=\"Submit\" onclick=\"window.location.href='selectUnit.jsp'\" /></td>\n");
       out.write("        </form>\n");
       out.write("    </tr>\n");
       out.write("    <tr>\n");
-      out.write("        <form action=\"updateSoldier.jsp\">\n");
+      out.write("        <form action=\"updateUnit.jsp\">\n");
       out.write("        <td><input type='text' name='idedit' value=\"Podaj ID\"/></td>\n");
-      out.write("        <!--<td><a href=\"getSoldierData.jsp\"><div class=\"opbutton\"><img src=\"graphics/update.png\"></div></a></td>-->\n");
+      out.write("        <!--<td><a href=\"getUnitData.jsp\"><div class=\"opbutton\"><img src=\"graphics/update.png\"></div></a></td>-->\n");
       out.write("        <td><input type=\"image\" src=\"graphics/update.png\" border=\"0\" alt=\"Submit\" /></td>\n");
       out.write("        </form>\n");
       out.write("    </tr>\n");
       out.write("    <tr>\n");
-      out.write("        <form action=\"deleteSoldier\">\n");
+      out.write("        <form action=\"deleteUnit\">\n");
       out.write("        <td><input type='text' name='iddelete' value=\"Podaj ID\"/></td>\n");
-      out.write("        <!--<td><a href=\"getSoldierData.jsp\"><div class=\"opbutton\"><img src=\"graphics/delete2.png\"></div></a></td>-->\n");
+      out.write("        <!--<td><a href=\"getUnitData.jsp\"><div class=\"opbutton\"><img src=\"graphics/delete2.png\"></div></a></td>-->\n");
       out.write("        <td><input type='image' src=\"graphics/delete2.png\" border=\"0\" alt=\"Submit\"/></td>\n");
       out.write("        </form>\n");
       out.write("    </tr>\n");
@@ -106,20 +106,18 @@ public final class showAllSoldiers_jsp extends org.apache.jasper.runtime.HttpJsp
       out.write("        <table class=\"presentationtable\" align=\"center\">\n");
       out.write("    <tr>\n");
       out.write("        <td>ID</td>\n");
-      out.write("        <td>Ranga</td>\n");
-      out.write("        <td>Nazwa</td>\n");
-      out.write("        <td>Lata służby</td>\n");
+      out.write("        <td>ID Żołnierza</td>\n");
+      out.write("        <td>ID Pojazdu</td>\n");
       out.write("        <!--<td colspan=\"3\">Operacje</td>-->\n");
       out.write("    </tr>\n");
       out.write("    ");
 
-    for (Soldier soldier : storage.getAllSoldiers())
+    for (Unit unit : storage.getAllUnits())
     {
     out.println(
-    "<tr><td>" + soldier.getId() + "</td>" +
-    "<td>" + soldier.getRank() + "</td>" +
-    "<td>" + soldier.getName() + "</td>" +
-    "<td>" + soldier.getyearOfService() + "</td>" +
+    "<tr><td>" + unit.getId() + "</td>" +
+    "<td>" + unit.getSoldierId() + "</td>" +
+    "<td>" + unit.getVehicleId() + "</td>" +
     /*"<td><img src=" + "graphics/preview.png" + " class=\"actionbutton\"></td>" +
     "<td><img src=" + "graphics/edit.png" + " class=\"actionbutton\"></td>" +
     "<td><img src=" + "graphics/delete2.png" + " class=\"actionbutton\"></td>" +*/

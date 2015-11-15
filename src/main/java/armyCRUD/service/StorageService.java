@@ -4,12 +4,14 @@ import java.util.List;
 
 import armyCRUD.domain.Soldier;
 import armyCRUD.domain.Vehicle;
+import armyCRUD.domain.Unit;
 
 
 public class StorageService {
 
     public List<Soldier> soldiers = new ArrayList<Soldier>();
     public List<Vehicle> vehicles = new ArrayList<Vehicle>();
+    public List<Unit> units = new ArrayList<Unit>();
 
     public void add(Soldier soldier){
         Soldier newPerson = new Soldier(soldier.getName(), soldier.getRank(), soldier.getyearOfService());
@@ -19,6 +21,10 @@ public class StorageService {
         Vehicle newVeh = new Vehicle(vehicle.getName(), vehicle.getType(), vehicle.getStatus(), vehicle.getSpeed());
         vehicles.add(newVeh);
     }
+    public void add(Unit unit){
+        Unit newUni = new Unit(unit.getSoldierId(), unit.getVehicleId());
+        units.add(newUni);
+    }
 
 
 
@@ -26,6 +32,7 @@ public class StorageService {
         return soldiers;
     }
     public List<Vehicle> getAllVehicles() { return vehicles; }
+    public List<Unit> getAllUnits() { return units; }
 
 
 }
