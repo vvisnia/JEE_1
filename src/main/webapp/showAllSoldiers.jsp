@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8" import="armyCRUD.domain.Soldier"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -13,7 +14,7 @@ pageEncoding="UTF-8" import="armyCRUD.domain.Soldier"%>
         <div class="navbar">
             <div class="navbuttons">
                 <div class="navbuttonhome"><a href="index.jsp"><img src="graphics/home.png" class="navbuttonhome"></a></div>
-                <div class="navbutton"><a href="unit.jsp"><img src="graphics/unit.png" class="navbutton"></a></div>
+                <div class="navbutton"><a href="showAllUnits.jsp"><img src="graphics/unit.png" class="navbutton"></a></div>
                 <div class="navbutton"><a href="showAllSoldiers.jsp"><img src="graphics/soldier.png" class="navbutton"></a></div>
                 <div class="navbutton"><a href="showAllVehicles.jsp"><img src="graphics/vehicle.png" class="navbutton"></a></div>
         </div>
@@ -59,20 +60,17 @@ pageEncoding="UTF-8" import="armyCRUD.domain.Soldier"%>
         <td>Lata służby</td>
         <!--<td colspan="3">Operacje</td>-->
     </tr>
-    <%
-    for (Soldier soldier : storage.getAllSoldiers())
-    {
-    out.println(
-    "<tr><td>" + soldier.getId() + "</td>" +
-    "<td>" + soldier.getRank() + "</td>" +
-    "<td>" + soldier.getName() + "</td>" +
-    "<td>" + soldier.getyearOfService() + "</td>" +
-    /*"<td><img src=" + "graphics/preview.png" + " class=\"actionbutton\"></td>" +
-    "<td><img src=" + "graphics/edit.png" + " class=\"actionbutton\"></td>" +
-    "<td><img src=" + "graphics/delete2.png" + " class=\"actionbutton\"></td>" +*/
-    "</tr>");
-    }
-    %>
+    <c:forEach var="soldierr" items="${storage.getAllSoldiers()}">
+     <tr>
+     <td><c:out value="${soldierr.getId()}"></c:out></td>
+     <td><c:out value="${soldierr.getRank()}"></c:out></td>
+     <td><c:out value="${soldierr.getName()}"></c:out></td>
+     <td><c:out value="${soldierr.getyearOfService()}"></c:out></td>
+
+
+     </tr>
+     </c:forEach>
+     </table>
     </table>
     </div>
     </body>

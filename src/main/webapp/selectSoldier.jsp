@@ -13,9 +13,9 @@ pageEncoding="UTF-8"%>
 <div class="navbar">
             <div class="navbuttons">
                 <div class="navbuttonhome"><a href="index.jsp"><img src="graphics/home.png" class="navbuttonhome"></a></div>
-                <div class="navbutton"><a href="unit.jsp"><img src="graphics/unit.png" class="navbutton"></a></div>
+                <div class="navbutton"><a href="showAllUnits.jsp"><img src="graphics/unit.png" class="navbutton"></a></div>
                 <div class="navbutton"><a href="showAllSoldiers.jsp"><img src="graphics/soldier.png" class="navbutton"></a></div>
-                <div class="navbutton"><a href="vehicle.jsp"><img src="graphics/vehicle.png" class="navbutton"></a></div>
+                <div class="navbutton"><a href="showAllVehicles.jsp"><img src="graphics/vehicle.png" class="navbutton"></a></div>
         </div>
 </div>
 <jsp:useBean id="storage" class="armyCRUD.service.StorageService" scope="application" />
